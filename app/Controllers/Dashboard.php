@@ -13,9 +13,10 @@ class Dashboard extends BaseController
         if (!session()->get('logged_in')) {
             return redirect()->to('/login')->with('error', 'Please login first');
         }
-        // get session data
+        // get session data for display
         $data = [
             'username' => session()->get('username'),
+            'user_email' => session()->get('user_email'),
             'login_time' => session()->get('login_time'),
             'current_time' => time(),
             'title' => 'Dashboard',
